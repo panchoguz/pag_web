@@ -1,0 +1,91 @@
+---
+title: "Estudio Longitudinal Social de Chile (ELSOC)2"
+description: |
+  Trabajaremos con las tres olas del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios de Conflicto y Cohesión Social (COES).
+author:
+  - name: Francisco Guzmán
+    #url: {}
+date: 04-15-2021
+output: 
+  distill::distill_article:
+    toc: true
+    number_sections: true
+    toc_float: true
+    toc_depth: 4
+categories:
+  - haven
+#preview: "plot.png"
+draft: true
+---
+
+<style>
+body {
+text-align: justify}
+</style>
+
+
+# Librerías 
+
+```{r}
+library(haven)
+library(plyr)
+library(dplyr)
+library(naniar)
+library(expss)
+library(pastecs)
+library(ggplot2)
+library(summarytools)
+
+
+```
+
+# Base de Datos
+
+```{r}
+elsoc <- readRDS("elsoc.rds")
+attach(elsoc)
+
+```
+
+## Creación de variables
+
+```{r}
+#salario percibido en $ millones
+elsoc$sp_gerente <- d03_01/1000000
+elsoc$sp_obrero <- d03_02/1000000
+
+#salario justo en $ millones
+elsoc$sj_gerente <- d04_01/1000000
+elsoc$sj_obrero <- d04_02/1000000
+
+#brecha percibida
+elsoc$bp <-  elsoc$sp_gerente/elsoc$sp_obrero
+elsoc$bp_ln <-  log2(elsoc$sp_gerente/elsoc$sp_obrero)
+
+#brecha justa
+elsoc$bj <-  elsoc$sj_gerente/elsoc$sj_obrero
+elsoc$bj_ln <-  log2(elsoc$sj_gerente/elsoc$sj_obrero)
+
+```
+
+## Etiquetamos variables
+```{r}
+elsoc = apply_labels(elsoc,
+                      sp_gerente = "Salario percibido: Gerente gran empresa ($MM)",
+                     sp_obrero = "Salario Percibido: Obrero no calificado ($MM)",
+                     sj_gerente = "Salario justo: Gerente gran empresa ($MM)",
+                     sj_obrero = "Salario justo: Obrero no calificado ($MM)",
+                     bp = "Brecha Percibida",
+                     bp_ln = "Brecha Percibida (ln)",
+                     bj = "Brecha Justa",
+                     bj_ln = "Brecha Justa (ln)"
+                     )
+
+```
+
+
+# Referencias
+
+* [Replacing values with NA](https://cran.r-project.org/web/packages/naniar/vignettes/replace-with-na.html)
+
+

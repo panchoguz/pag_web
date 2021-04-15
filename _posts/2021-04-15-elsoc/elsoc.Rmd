@@ -1,0 +1,84 @@
+---
+title: "Armando un Panel de Datos"
+description: |
+  Conformaremos un panel de datos con las tres olas del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios de Conflicto y Cohesión Social (COES).
+author:
+  - name: Francisco Guzmán
+    #url: {}
+date: 04-14-2021
+output: 
+  distill::distill_article:
+    toc: true
+    number_sections: true
+    toc_float: true
+    toc_depth: 4
+categories:
+  - haven
+  - plyr
+
+#preview: "plot.png"
+---
+
+<style>
+body {
+text-align: justify}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE, echo = TRUE)
+```
+
+# Librerías 
+
+```{r}
+library(haven)
+library(plyr)
+library(dplyr)
+library(naniar)
+
+```
+
+# Base de Datos
+## Importamos
+Obtenemos las bases en formato *.RData* desde [dataverse.harvard.edu](https://dataverse.harvard.edu/dataverse/coes_data_repository?q=&types=datasets&fq0=subtreePaths%3A%22%2F3130692%22&fq1=dvObjectType%3A%28datasets+OR+files%29&sort=dateSort&order=desc&page=1). Luego, las importamos.
+
+```{r}
+load("ELSOC_W01_v4.00_R.RData")
+load("ELSOC_W02_v3.00_R.RData")
+load("ELSOC_W03_v2.00_R.RData")
+
+```
+
+## Panel de Datos
+Creamos el panel de datos combinando las tres bases con el comando **rbind.fill**(como *append* en stata):
+
+```{r}
+elsoc <- rbind.fill(elsoc_2016, elsoc_2017, elsoc_2018)
+
+```
+
+## Missing Values
+Dado que en la ELSOC se asigna a los *missing values* un código único de -999 a “No Responde” y -888 “No Sabe”, hacemos una modificación para dejar estos números como *NA*.
+
+```{r}
+elsoc <- elsoc %>%
+  replace_with_na_all(condition = ~.x == -999)
+elsoc <- elsoc %>%
+  replace_with_na_all(condition = ~.x == -888)
+
+```
+
+## Guardamos Base
+Guardamos el panel con:
+
+```{r}
+saveRDS(elsoc, "elsoc.rds")
+
+```
+
+
+# Referencias
+
+* [Replacing values with NA](https://cran.r-project.org/web/packages/naniar/vignettes/replace-with-na.html)
+
+
