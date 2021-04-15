@@ -3,13 +3,13 @@ title: "Francisco Guzmán"
 image: "maihue.jpg"
 links:
   - label: LinkedIn
-    url: "https://linkedin.com/"
+    url: "https://www.linkedin.com/in/francisco-guzm%C3%A1n-benavente-74b8941b4/"
   - label: Twitter
-    url: "https://twitter.com/"
+    url: "https://twitter.com/panchoguzman_"
   - label: GitHub
-    url: "https://github.com/"
+    url: "https://github.com/panchoguz"
   - label: Email
-    url: "mailto:email@email.com"
+    url: "jguzmanb@fen.uchile.cl"
 output:
   postcards::jolla
 ---
