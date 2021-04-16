@@ -1,7 +1,7 @@
 name: "my-blog"
-title: "My Blog"
+title: "Panchog"
 description: |
-  My Blog
+  Publicaciones
 output_dir: "_site"
 navbar:
   right:

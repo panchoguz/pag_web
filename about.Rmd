@@ -1,7 +1,8 @@
 ---
-title: "About this blog"
+title: "Acerca de este Blog"
 description: |
-  Some additional details about the blog
+  El blog está pensado para publicaciones relacionadas al entorno R.
+  
 ---
 
 ```{r setup, include=FALSE}
