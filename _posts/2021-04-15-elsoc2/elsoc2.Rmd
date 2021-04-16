@@ -8,6 +8,7 @@ author:
 date: 04-15-2021
 output: 
   distill::distill_article:
+    code_folding: true
     toc: true
     number_sections: true
     toc_float: true
@@ -22,6 +23,11 @@ draft: true
 body {
 text-align: justify}
 </style>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
 
 
 # Librerías 
