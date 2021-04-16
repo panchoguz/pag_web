@@ -5,7 +5,7 @@
     "description": "A short description of the post.",
     "author": [
       {
-        "name": "Francisco GuzmÃ¡n",
+        "name": "Francisco Guzmán",
         "url": {}
       }
     ],
@@ -13,8 +13,8 @@
     "categories": [],
     "contents": "\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-04-16T12:19:00-04:00",
-    "input_file": {}
+    "last_modified": "2021-04-16T12:28:05-04:00",
+    "input_file": "prueba-1.utf8.md"
   },
   {
     "path": "posts/2021-04-15-elsoc/",

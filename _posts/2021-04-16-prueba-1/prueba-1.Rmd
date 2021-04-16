@@ -3,7 +3,7 @@ title: "Prueba 1"
 description: |
   A short description of the post.
 author:
-  - name: Francisco GuzmÃ¡n
+  - name: Francisco Guzmán
     url: {}
 date: 04-16-2021
 output:
