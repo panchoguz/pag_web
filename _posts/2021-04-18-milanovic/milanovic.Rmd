@@ -16,7 +16,8 @@ output:
 categories:
   - haven
 #preview: "plot.png"
-draft: false
+
+draft: true
 ---
 
 # Librerías
