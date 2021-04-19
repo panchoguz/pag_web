@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
+  <url>
+    <loc>https://panchog.netlify.app/about.html</loc>
+    <lastmod>2021-04-15T21:18:20-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://panchog.netlify.app/about2.html</loc>
+    <lastmod>2021-04-15T21:19:44-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://panchog.netlify.app/</loc>
+    <lastmod>2021-04-15T20:50:29-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://panchog.netlify.app/posts/2021-04-18-milanovic/</loc>
+    <lastmod>2021-04-19T07:15:29-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://panchog.netlify.app/posts/2021-04-15-elsoc/</loc>
+    <lastmod>2021-04-15T19:28:23-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://panchog.netlify.app/posts/2021-04-15-mp2020/</loc>
+    <lastmod>2021-04-15T19:29:07-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://panchog.netlify.app/posts/2021-04-15-wdi/</loc>
+    <lastmod>2021-04-15T19:26:21-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://panchog.netlify.app/posts/2021-04-15-cobre/</loc>
+    <lastmod>2021-04-15T19:25:37-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://panchog.netlify.app/posts/2021-04-15-tasasind/</loc>
+    <lastmod>2021-04-15T19:23:55-04:00</lastmod>
+  </url>
+</urlset>

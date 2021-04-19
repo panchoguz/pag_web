@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Panchog</title>
+    <link>https://panchog.netlify.app/</link>
+    <atom:link href="https://panchog.netlify.app/index.xml" rel="self" type="application/rss+xml"/>
+    <description>Publicaciones
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Sun, 18 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Milanovic</title>
+      <dc:creator>Francisco Guzmán</dc:creator>
+      <link>https://panchog.netlify.app/posts/2021-04-18-milanovic</link>
+      <description>A short description of the post.</description>
+      <category>haven</category>
+      <guid>https://panchog.netlify.app/posts/2021-04-18-milanovic</guid>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Armando un Panel de Datos</title>
+      <dc:creator>Francisco Guzmán</dc:creator>
+      <link>https://panchog.netlify.app/posts/2021-04-15-elsoc</link>
+      <description>Conformaremos un panel de datos con las tres olas del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios de Conflicto y Cohesión Social (COES).</description>
+      <category>haven</category>
+      <category>plyr</category>
+      <guid>https://panchog.netlify.app/posts/2021-04-15-elsoc</guid>
+      <pubDate>Wed, 14 Apr 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Maddison Project Database 2020</title>
+      <dc:creator>Francisco Guzmán</dc:creator>
+      <link>https://panchog.netlify.app/posts/2021-04-15-mp2020</link>
+      <description>Trabajaremos con los datos proporcionados por el Proyecto Maddison y realizaremos un gráfico que nos muestre el crecimiento del PIB per cápita de los países seleccionados.</description>
+      <category>ggplot2</category>
+      <category>plotly</category>
+      <guid>https://panchog.netlify.app/posts/2021-04-15-mp2020</guid>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://panchog.netlify.app/posts/2021-04-15-mp2020/distill-preview.png" medium="image" type="image/png" width="2125" height="1594"/>
+    </item>
+    <item>
+      <title>Paquete WDI</title>
+      <dc:creator>Francisco Guzmán</dc:creator>
+      <link>https://panchog.netlify.app/posts/2021-04-15-wdi</link>
+      <description>Comparación del PIB per cápita real (PPA) entre países. Datos: Banco Mundial (utilizando paquete WDI).</description>
+      <category>WDI</category>
+      <category>ggplot2</category>
+      <guid>https://panchog.netlify.app/posts/2021-04-15-wdi</guid>
+      <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://panchog.netlify.app/posts/2021-04-15-wdi/plot.png" medium="image" type="image/png" width="2125" height="1594"/>
+    </item>
+    <item>
+      <title>Evolución precio del cobre</title>
+      <dc:creator>Francisco Guzmán</dc:creator>
+      <link>https://panchog.netlify.app/posts/2021-04-15-cobre</link>
+      <description>Construcción de un gráfico con indicaciones paso por paso. Datos: Cochilco.</description>
+      <category>ggplot2</category>
+      <guid>https://panchog.netlify.app/posts/2021-04-15-cobre</guid>
+      <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://panchog.netlify.app/posts/2021-04-15-cobre/plot.png" medium="image" type="image/png" width="2125" height="1594"/>
+    </item>
+    <item>
+      <title>Tasa de sindicalización</title>
+      <dc:creator>Francisco Guzmán</dc:creator>
+      <link>https://panchog.netlify.app/posts/2021-04-15-tasasind</link>
+      <description>Construcción de un gráfico con la tasa de sindicalización de algunos países OCDE, período 2000-2018. Datos: paquete OECD.</description>
+      <category>OECD</category>
+      <category>ggplot2</category>
+      <guid>https://panchog.netlify.app/posts/2021-04-15-tasasind</guid>
+      <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://panchog.netlify.app/posts/2021-04-15-tasasind/distill-preview.png" medium="image" type="image/png" width="2125" height="1594"/>
+    </item>
+  </channel>
+</rss>

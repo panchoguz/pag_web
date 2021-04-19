@@ -1,0 +1,96 @@
+---
+title: "Milanovic"
+description: |
+  A short description of the post.
+author:
+  - name: Francisco Guzmán
+    url: {}
+date: 04-18-2021
+output: 
+  distill::distill_article:
+    code_folding: false
+    toc: true
+    number_sections: true
+    toc_float: true
+    toc_depth: 4
+categories:
+  - haven
+#preview: "plot.png"
+draft: false
+---
+
+# Librerías
+
+```{r}
+library(haven)
+library(tidyverse)
+library(scales)
+library(ggthemes)
+library(gganimate)
+library(plotly)
+library(ggiraph)
+
+
+
+```
+
+# Base de Datos
+## Importamos
+
+```{r}
+df <- read_dta("lm_wpid_web.dta")
+attach(df)
+
+```
+
+# Gráfico
+
+## Selección de Países
+
+```{r}
+graf1 <- df %>%
+  filter(contcod %in% c("CHL", "ESP"))
+
+```
+
+
+```{r}
+g2 <- ggplot(graf1, aes(x = group, y = RRinc, color = contcod)) +
+  geom_point_interactive(aes(tooltip = RRinc)) +
+                           geom_line() +
+  labs(title = "Ingreso promedio per cápita por decil (PPP 2005)",
+       subtitle = "Período 1988-2008",
+       caption = "Fuente: Elaboracion propia en base a Lakner-Milanovic (2013) World Panel Income Distribution (LM-WPID) data",
+       x = "Deciles",
+       y = "USD - PPP 2005",
+       col = NULL) +
+       scale_color_manual(values = c("#DA0000", "#C4961A")) +
+       scale_x_continuous(breaks=seq(1,10, by = 1), position = "bottom") +
+       scale_y_continuous(labels = dollar) +
+       facet_wrap(~bin_year, ncol = 3) +
+  theme(plot.title = element_text(size = rel(2)),
+        plot.subtitle = element_text(size = rel(1.4),
+                                     margin=margin(0,0,20,0)),
+        plot.caption = element_text(size = rel(.9),
+                                    hjust = 0,
+                                    face= "italic",
+                                    margin=margin(20,0,0,0)),
+        axis.text.x = element_text(angle = 0, vjust=.5, size = 10),
+        axis.text.y = element_text(angle = 0, vjust=.5, size = 10),
+        axis.ticks.length.x = unit(.25, "cm"),
+        axis.ticks.x = element_line(size = .3),
+        axis.ticks.length.y = unit(.25, "cm"),
+        axis.ticks.y = element_line(size = .3),
+        panel.grid.major.x = element_line(colour = "grey87"),
+        panel.grid.minor.x = element_line(colour = "grey92"),
+        panel.grid.major.y = element_line(colour = "grey87"),
+        panel.grid.minor.y = element_line(colour = "grey87"),
+        legend.position = c(0.87, 0.22),
+        legend.text = element_text(size = 13),
+        legend.key.size = unit(3,"line"))
+
+girafe(ggobj = g2, width_svg = 8, height_svg = 6)
+
+```
+
+

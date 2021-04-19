@@ -12,3 +12,11 @@ navbar:
     - text: "Sobre mi"
       href: about2.html
 output: distill::distill_article
+base_url: https://panchog.netlify.app/
+collections:
+  posts:
+    disqus: 
+      shortname: https-panchog-netlify-app
+      hidden: false
+    share: [twitter, facebook, linkedin]
+    citations: false
