@@ -162,7 +162,7 @@ knitr::include_graphics("plot.png")
 
 # Código
 
-```{r ref.label=knitr::all_labels(), echo = T, eval = F}
+```{r ref.label=knitr::all_labels(), echo = T, eval = F, code_folding = TRUE}
 ```
 
 # Referencias
