@@ -11,13 +11,13 @@
     <item>
       <title>Ingreso promedio per cápita</title>
       <dc:creator>Francisco Guzmán</dc:creator>
-      <link>https://panchog.netlify.app/posts/2021-04-18-milanovic</link>
+      <link>https://panchog.netlify.app/posts/2021-04-19-milanovic</link>
       <description>Trabajaremos con la base Lakner-Milanovic (2013) para crear algunos gráficos sobre ingreso promedio per cápita (PPP 2005) durante el período 1988-2008.</description>
       <category>Lakner-Milanovic (2013)</category>
       <category>Shiny App</category>
-      <guid>https://panchog.netlify.app/posts/2021-04-18-milanovic</guid>
+      <guid>https://panchog.netlify.app/posts/2021-04-19-milanovic</guid>
       <pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://panchog.netlify.app/posts/2021-04-18-milanovic/plot.png" medium="image" type="image/png" width="2400" height="1800"/>
+      <media:content url="https://panchog.netlify.app/posts/2021-04-19-milanovic/plot.png" medium="image" type="image/png" width="2400" height="1800"/>
     </item>
     <item>
       <title>Armando un Panel de Datos</title>
