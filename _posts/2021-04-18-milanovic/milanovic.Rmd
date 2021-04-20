@@ -15,6 +15,7 @@ output:
     toc_depth: 4
 categories:
   - Lakner-Milanovic (2013)
+  - Shiny App
 preview: "plot.png"
 draft: false
 ---
