@@ -306,6 +306,14 @@ girafe(ggobj = g5, width_svg = 8, height_svg = 6)
 
 ```
 
+# Gráfico Interactivo
+
+* Se debe acceder al siguiente link **[Shiny App](https://panchoguzman.shinyapps.io/Ingreso_promedio_pc_ppp_2005/)**.
+
+```{r, echo=FALSE}
+knitr::include_graphics("captura.png")
+
+```
 
 # Código
 ```{r ref.label=knitr::all_labels(), echo = T, eval = F, code_folding = TRUE}

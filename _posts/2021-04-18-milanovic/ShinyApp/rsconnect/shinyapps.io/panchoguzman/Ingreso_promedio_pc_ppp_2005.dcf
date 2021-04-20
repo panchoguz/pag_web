@@ -1,0 +1,13 @@
+name: Ingreso_promedio_pc_ppp_2005
+title: Ingreso_promedio_pc_ppp_2005
+username:
+account: panchoguzman
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3996196
+bundleId: 4493052
+url: https://panchoguzman.shinyapps.io/Ingreso_promedio_pc_ppp_2005/
+when: 1618877439.55169
+lastSyncTime: 1618877439.55169
+asMultiple: FALSE
+asStatic: FALSE
