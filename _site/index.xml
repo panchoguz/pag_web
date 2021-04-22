@@ -20,10 +20,10 @@
       <media:content url="https://panchog.netlify.app/posts/2021-04-19-milanovic/plot.png" medium="image" type="image/png" width="2400" height="1800"/>
     </item>
     <item>
-      <title>Armando un Panel de Datos</title>
+      <title>rbind.fill para armado de bases</title>
       <dc:creator>Francisco Guzmán</dc:creator>
       <link>https://panchog.netlify.app/posts/2021-04-15-elsoc</link>
-      <description>Conformaremos un panel de datos con las tres olas del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios de Conflicto y Cohesión Social (COES).</description>
+      <description>Juntaremos las tres olas del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios de Conflicto y Cohesión Social (COES) con el comando rbind.fill.</description>
       <category>haven</category>
       <category>plyr</category>
       <guid>https://panchog.netlify.app/posts/2021-04-15-elsoc</guid>

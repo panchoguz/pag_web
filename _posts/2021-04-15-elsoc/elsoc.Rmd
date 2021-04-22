@@ -1,7 +1,7 @@
 ---
-title: "Armando un Panel de Datos"
+title: "rbind.fill para armado de bases"
 description: |
-  Conformaremos un panel de datos con las tres olas del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios de Conflicto y Cohesión Social (COES).
+  Juntaremos las tres olas del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios de Conflicto y Cohesión Social (COES) con el comando rbind.fill.
 author:
   - name: Francisco Guzmán
     #url: {}
@@ -49,8 +49,8 @@ load("ELSOC_W03_v2.00_R.RData")
 
 ```
 
-## Panel de Datos
-Creamos el panel de datos combinando las tres bases con el comando **rbind.fill**(como *append* en stata):
+## rbind.fill
+Combinamos las tres bases con el comando **rbind.fill**(como *append* en stata):
 
 ```{r}
 elsoc <- rbind.fill(elsoc_2016, elsoc_2017, elsoc_2018)
@@ -69,7 +69,7 @@ elsoc <- elsoc %>%
 ```
 
 ## Guardamos Base
-Guardamos el panel con:
+Guardamos la base con:
 
 ```{r}
 saveRDS(elsoc, "elsoc.rds")

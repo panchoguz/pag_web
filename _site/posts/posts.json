@@ -23,8 +23,8 @@
   },
   {
     "path": "posts/2021-04-15-elsoc/",
-    "title": "Armando un Panel de Datos",
-    "description": "Conformaremos un panel de datos con las tres olas del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios de Conflicto y Cohesión Social (COES).",
+    "title": "rbind.fill para armado de bases",
+    "description": "Juntaremos las tres olas del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios de Conflicto y Cohesión Social (COES) con el comando rbind.fill.",
     "author": [
       {
         "name": "Francisco Guzmán",
@@ -36,10 +36,10 @@
       "haven",
       "plyr"
     ],
-    "contents": "\r\n\r\nContents\r\nLibrerías\r\nBase de Datos\r\nImportamos\r\nPanel de Datos\r\nMissing Values\r\nGuardamos Base\r\n\r\nReferencias\r\n\r\n\r\nbody {\r\ntext-align: justify}\r\nLibrerías\r\n\r\n\r\nlibrary(haven)\r\nlibrary(plyr)\r\nlibrary(dplyr)\r\nlibrary(naniar)\r\n\r\n\r\n\r\nBase de Datos\r\nImportamos\r\nObtenemos las bases en formato .RData desde dataverse.harvard.edu. Luego, las importamos.\r\n\r\n\r\nload(\"ELSOC_W01_v4.00_R.RData\")\r\nload(\"ELSOC_W02_v3.00_R.RData\")\r\nload(\"ELSOC_W03_v2.00_R.RData\")\r\n\r\n\r\n\r\nPanel de Datos\r\nCreamos el panel de datos combinando las tres bases con el comando rbind.fill(como append en stata):\r\n\r\n\r\nelsoc <- rbind.fill(elsoc_2016, elsoc_2017, elsoc_2018)\r\n\r\n\r\n\r\nMissing Values\r\nDado que en la ELSOC se asigna a los missing values un código único de -999 a “No Responde” y -888 “No Sabe”, hacemos una modificación para dejar estos números como NA.\r\n\r\n\r\nelsoc <- elsoc %>%\r\n  replace_with_na_all(condition = ~.x == -999)\r\nelsoc <- elsoc %>%\r\n  replace_with_na_all(condition = ~.x == -888)\r\n\r\n\r\n\r\nGuardamos Base\r\nGuardamos el panel con:\r\n\r\n\r\nsaveRDS(elsoc, \"elsoc.rds\")\r\n\r\n\r\n\r\nReferencias\r\nReplacing values with NA\r\n\r\n\r\n\r\n",
+    "contents": "\r\n\r\nContents\r\nLibrerías\r\nBase de Datos\r\nImportamos\r\nrbind.fill\r\nMissing Values\r\nGuardamos Base\r\n\r\nReferencias\r\n\r\n\r\nbody {\r\ntext-align: justify}\r\nLibrerías\r\n\r\n\r\nlibrary(haven)\r\nlibrary(plyr)\r\nlibrary(dplyr)\r\nlibrary(naniar)\r\n\r\n\r\n\r\nBase de Datos\r\nImportamos\r\nObtenemos las bases en formato .RData desde dataverse.harvard.edu. Luego, las importamos.\r\n\r\n\r\nload(\"ELSOC_W01_v4.00_R.RData\")\r\nload(\"ELSOC_W02_v3.00_R.RData\")\r\nload(\"ELSOC_W03_v2.00_R.RData\")\r\n\r\n\r\n\r\nrbind.fill\r\nCombinamos las tres bases con el comando rbind.fill(como append en stata):\r\n\r\n\r\nelsoc <- rbind.fill(elsoc_2016, elsoc_2017, elsoc_2018)\r\n\r\n\r\n\r\nMissing Values\r\nDado que en la ELSOC se asigna a los missing values un código único de -999 a “No Responde” y -888 “No Sabe”, hacemos una modificación para dejar estos números como NA.\r\n\r\n\r\nelsoc <- elsoc %>%\r\n  replace_with_na_all(condition = ~.x == -999)\r\nelsoc <- elsoc %>%\r\n  replace_with_na_all(condition = ~.x == -888)\r\n\r\n\r\n\r\nGuardamos Base\r\nGuardamos la base con:\r\n\r\n\r\nsaveRDS(elsoc, \"elsoc.rds\")\r\n\r\n\r\n\r\nReferencias\r\nReplacing values with NA\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-04-15T19:28:23-04:00",
-    "input_file": {}
+    "last_modified": "2021-04-22T18:10:37-04:00",
+    "input_file": "elsoc.utf8.md"
   },
   {
     "path": "posts/2021-04-15-mp2020/",
