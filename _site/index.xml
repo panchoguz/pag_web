@@ -7,19 +7,7 @@
     <description>Publicaciones
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 23 Apr 2021 00:00:00 +0000</lastBuildDate>
-    <item>
-      <title>Analizando el Estudio Longitudinal Social de Chile (ELSOC)</title>
-      <dc:creator>Francisco Guzmán</dc:creator>
-      <link>https://panchog.netlify.app/posts/2021-04-15-elsoc2</link>
-      <description>Trabajaremos con algunas variables de las tres olas del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios de Conflicto y Cohesión Social (COES).</description>
-      <category>ELSOC</category>
-      <category>Est. Descriptiva</category>
-      <category>Graficos</category>
-      <guid>https://panchog.netlify.app/posts/2021-04-15-elsoc2</guid>
-      <pubDate>Fri, 23 Apr 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://panchog.netlify.app/posts/2021-04-15-elsoc2/distill-preview.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
+    <lastBuildDate>Mon, 19 Apr 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Ingreso promedio per cápita</title>
       <dc:creator>Francisco Guzmán</dc:creator>
