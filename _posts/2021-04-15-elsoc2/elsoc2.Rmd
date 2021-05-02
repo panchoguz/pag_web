@@ -18,7 +18,7 @@ categories:
   - Est. Descriptiva
   - Graficos
 #preview: "plot.png"
-draft: false
+draft: true
 ---
 
 <style>
@@ -148,15 +148,9 @@ plot(ln_sj_gerente)
 Eliminamos los valores atípicos o *outliers* de manera arbitraria.
 
 ```{r, results='hide'}
-elsoc[!(elsoc$idencuesta %in% c("3101041","3301091", "3301183", "3301113", "13115035","13115022") 
+elsoc <- elsoc[!(elsoc$idencuesta %in% c("3101041","3301091", "3301183", "3301113", "13115035","13115022") 
        & elsoc$ola == 1), 
        ]
-
-subset(idencuesta %in% c("3101041","3301091", "3301183", "3301113", "13115035","13115022") 
-       & elsoc$ola == 1)
-
-elsoc <- subset(elsoc, idencuesta %in% c("3101041","3301091", "3301183", "3301113", "13115035","13115022") 
-       & ola == 1)
 
 ```
 

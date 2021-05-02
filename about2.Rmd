@@ -1,5 +1,5 @@
 ---
-title: "Francisco Guzmán B"
+title: "Francisco Guzmán Benavente"
 image: "maihue.jpg"
 links:
   - label: LinkedIn
@@ -13,4 +13,4 @@ output:
   postcards::jolla
 ---
  
-Egresado de economía en la Universidad de Chile, actualmente esperando mis resultados del examen de grado para titularme. Interesado por el análisis de datos, el fútbol y el ajedrez.
+Economista de la Universidad de Chile, interesado en el análisis de datos.

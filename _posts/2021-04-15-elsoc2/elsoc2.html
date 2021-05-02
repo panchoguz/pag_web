@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","draft"]}},"value":[{"type":"character","attributes":{},"value":["Analizando el Estudio Longitudinal Social de Chile (ELSOC)"]},{"type":"character","attributes":{},"value":["Trabajaremos con algunas variables de las tres olas del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios de Conflicto y Cohesión Social (COES).\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Francisco Guzmán"]}]}]},{"type":"character","attributes":{},"value":["04-23-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","number_sections","toc_float","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[4]}]}]},{"type":"character","attributes":{},"value":["ELSOC","Est. Descriptiva","Graficos"]},{"type":"logical","attributes":{},"value":[false]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","draft"]}},"value":[{"type":"character","attributes":{},"value":["Analizando el Estudio Longitudinal Social de Chile (ELSOC)"]},{"type":"character","attributes":{},"value":["Trabajaremos con algunas variables de las tres olas del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios de Conflicto y Cohesión Social (COES).\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Francisco Guzmán"]}]}]},{"type":"character","attributes":{},"value":["04-23-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","number_sections","toc_float","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[4]}]}]},{"type":"character","attributes":{},"value":["ELSOC","Est. Descriptiva","Graficos"]},{"type":"logical","attributes":{},"value":[true]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1658,7 +1658,7 @@ Value |                          Label |    N | Raw % | Valid % | Cum. %
 <p>Eliminamos los valores atípicos o <em>outliers</em> de manera arbitraria.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="va">elsoc</span><span class="op">[</span><span class="op">!</span><span class="op">(</span><span class="va">elsoc</span><span class="op">$</span><span class="va">idencuesta</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">&quot;3101041&quot;</span>,<span class="st">&quot;3301091&quot;</span>, <span class="st">&quot;3301183&quot;</span>, <span class="st">&quot;3301113&quot;</span>, <span class="st">&quot;13115035&quot;</span>,<span class="st">&quot;13115022&quot;</span><span class="op">)</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">elsoc</span> <span class="op">&lt;-</span> <span class="va">elsoc</span><span class="op">[</span><span class="op">!</span><span class="op">(</span><span class="va">elsoc</span><span class="op">$</span><span class="va">idencuesta</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">&quot;3101041&quot;</span>,<span class="st">&quot;3301091&quot;</span>, <span class="st">&quot;3301183&quot;</span>, <span class="st">&quot;3301113&quot;</span>, <span class="st">&quot;13115035&quot;</span>,<span class="st">&quot;13115022&quot;</span><span class="op">)</span> 
        <span class="op">&amp;</span> <span class="va">elsoc</span><span class="op">$</span><span class="va">ola</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span>, 
        <span class="op">]</span>
 </code></pre>
@@ -1695,7 +1695,7 @@ Value |                          Label |    N | Raw % | Valid % | Cum. %
 <thead>
 <tr>
 <th class="rowlabel firstrow lastrow"></th>
-<th class="firstrow lastrow"><span class="stratlabel">1<br><span class="stratn">(N=2927)</span></span></th>
+<th class="firstrow lastrow"><span class="stratlabel">1<br><span class="stratn">(N=2921)</span></span></th>
 <th class="firstrow lastrow"><span class="stratlabel">2<br><span class="stratn">(N=2473)</span></span></th>
 <th class="firstrow lastrow"><span class="stratlabel">3<br><span class="stratn">(N=3748)</span></span></th>
 </tr>
@@ -1711,19 +1711,19 @@ Value |                          Label |    N | Raw % | Valid % | Cum. %
 </tr>
 <tr>
 <td class="rowlabel">Media (Desv. est.)</td>
-<td>75000000000 (2670000000000)</td>
+<td>79.4 (621)</td>
 <td>21.3 (59.5)</td>
 <td>18.0 (47.1)</td>
 </tr>
 <tr>
 <td class="rowlabel">Mediana [Rango]</td>
-<td>11.0 [0, 100000000000000]</td>
+<td>10.0 [0, 20000]</td>
 <td>8.00 [0, 900]</td>
 <td>8.00 [0.100, 900]</td>
 </tr>
 <tr>
 <td class="rowlabel lastrow">Obs.</td>
-<td class="lastrow">2813</td>
+<td class="lastrow">2807</td>
 <td class="lastrow">2213</td>
 <td class="lastrow">3518</td>
 </tr>
@@ -1735,19 +1735,19 @@ Value |                          Label |    N | Raw % | Valid % | Cum. %
 </tr>
 <tr>
 <td class="rowlabel">Media (Desv. est.)</td>
-<td>34500000000 (1860000000000)</td>
+<td>0.318 (0.756)</td>
 <td>0.312 (0.204)</td>
 <td>0.400 (4.63)</td>
 </tr>
 <tr>
 <td class="rowlabel">Mediana [Rango]</td>
-<td>0.250 [0, 100000000000000]</td>
+<td>0.250 [0, 35.0]</td>
 <td>0.270 [0, 5.00]</td>
 <td>0.288 [0.0500, 280]</td>
 </tr>
 <tr>
 <td class="rowlabel lastrow">Obs.</td>
-<td class="lastrow">2897</td>
+<td class="lastrow">2891</td>
 <td class="lastrow">2359</td>
 <td class="lastrow">3660</td>
 </tr>
@@ -1759,19 +1759,19 @@ Value |                          Label |    N | Raw % | Valid % | Cum. %
 </tr>
 <tr>
 <td class="rowlabel">Media (Desv. est.)</td>
-<td>35800000000 (1890000000000)</td>
+<td>47.8 (441)</td>
 <td>8.76 (36.7)</td>
 <td>6.74 (20.5)</td>
 </tr>
 <tr>
 <td class="rowlabel">Mediana [Rango]</td>
-<td>5.00 [0, 100000000000000]</td>
+<td>5.00 [0, 8000]</td>
 <td>3.00 [0, 600]</td>
 <td>3.00 [0.100, 500]</td>
 </tr>
 <tr>
 <td class="rowlabel lastrow">Obs.</td>
-<td class="lastrow">2796</td>
+<td class="lastrow">2790</td>
 <td class="lastrow">2207</td>
 <td class="lastrow">3513</td>
 </tr>
@@ -1783,19 +1783,19 @@ Value |                          Label |    N | Raw % | Valid % | Cum. %
 </tr>
 <tr>
 <td class="rowlabel">Media (Desv. est.)</td>
-<td>346000000000 (18600000000000)</td>
+<td>0.747 (5.20)</td>
 <td>2.48 (24.4)</td>
 <td>0.602 (0.529)</td>
 </tr>
 <tr>
 <td class="rowlabel">Mediana [Rango]</td>
-<td>0.500 [0, 1000000000000000]</td>
+<td>0.500 [0, 250]</td>
 <td>0.500 [0, 480]</td>
 <td>0.500 [0.100, 20.0]</td>
 </tr>
 <tr>
 <td class="rowlabel lastrow">Obs.</td>
-<td class="lastrow">2894</td>
+<td class="lastrow">2888</td>
 <td class="lastrow">2353</td>
 <td class="lastrow">3677</td>
 </tr>
@@ -1807,19 +1807,19 @@ Value |                          Label |    N | Raw % | Valid % | Cum. %
 </tr>
 <tr>
 <td class="rowlabel">Media (Desv. est.)</td>
-<td>335000000000 (12100000000000)</td>
+<td>358 (3320)</td>
 <td>84.3 (470)</td>
 <td>62.1 (174)</td>
 </tr>
 <tr>
 <td class="rowlabel">Mediana [Rango]</td>
-<td>41.7 [0, 500000000000000]</td>
+<td>41.7 [0, 125000]</td>
 <td>28.0 [0.300, 20000]</td>
 <td>26.7 [0.107, 3480]</td>
 </tr>
 <tr>
 <td class="rowlabel lastrow">Obs.</td>
-<td class="lastrow">2806</td>
+<td class="lastrow">2800</td>
 <td class="lastrow">2212</td>
 <td class="lastrow">3506</td>
 </tr>
@@ -1831,19 +1831,19 @@ Value |                          Label |    N | Raw % | Valid % | Cum. %
 </tr>
 <tr>
 <td class="rowlabel">Media (Desv. est.)</td>
-<td>59800000000 (3160000000000)</td>
+<td>124 (1310)</td>
 <td>17.2 (85.5)</td>
 <td>12.8 (40.1)</td>
 </tr>
 <tr>
 <td class="rowlabel">Mediana [Rango]</td>
-<td>8.57 [0, 167000000000000]</td>
+<td>8.57 [0, 32000]</td>
 <td>6.00 [0, 2000]</td>
 <td>6.00 [0.0140, 1250]</td>
 </tr>
 <tr>
 <td class="rowlabel lastrow">Obs.</td>
-<td class="lastrow">2787</td>
+<td class="lastrow">2781</td>
 <td class="lastrow">2202</td>
 <td class="lastrow">3507</td>
 </tr>
@@ -1914,7 +1914,7 @@ Show code
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">ln_sp_gerente</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">ln_sj_gerente</span><span class="op">)</span>
 
-<span class="va">elsoc</span><span class="op">[</span><span class="op">!</span><span class="op">(</span><span class="va">elsoc</span><span class="op">$</span><span class="va">idencuesta</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">&quot;3101041&quot;</span>,<span class="st">&quot;3301091&quot;</span>, <span class="st">&quot;3301183&quot;</span>, <span class="st">&quot;3301113&quot;</span>, <span class="st">&quot;13115035&quot;</span>,<span class="st">&quot;13115022&quot;</span><span class="op">)</span> 
+<span class="va">elsoc</span> <span class="op">&lt;-</span> <span class="va">elsoc</span><span class="op">[</span><span class="op">!</span><span class="op">(</span><span class="va">elsoc</span><span class="op">$</span><span class="va">idencuesta</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">&quot;3101041&quot;</span>,<span class="st">&quot;3301091&quot;</span>, <span class="st">&quot;3301183&quot;</span>, <span class="st">&quot;3301113&quot;</span>, <span class="st">&quot;13115035&quot;</span>,<span class="st">&quot;13115022&quot;</span><span class="op">)</span> 
        <span class="op">&amp;</span> <span class="va">elsoc</span><span class="op">$</span><span class="va">ola</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span>, 
        <span class="op">]</span>
 
