@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["rbind.fill para armado de bases"]},{"type":"character","attributes":{},"value":["Juntaremos las tres olas del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios de Conflicto y Cohesión Social (COES) con el comando rbind.fill."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Francisco Guzmán"]}]}]},{"type":"character","attributes":{},"value":["04-14-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","number_sections","toc_float","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[4]}]}]},{"type":"character","attributes":{},"value":["haven","plyr"]},{"type":"character","attributes":{},"value":["https://panchog.netlify.app/posts/2021-04-15-elsoc/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["rbind.fill para armado de bases"]},{"type":"character","attributes":{},"value":["Juntaremos las tres olas del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios de Conflicto y Cohesión Social (COES) con el comando rbind.fill."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Francisco Guzmán"]}]}]},{"type":"character","attributes":{},"value":["04-14-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","number_sections","toc_float","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[4]}]}]},{"type":"character","attributes":{},"value":["ELSOC"]},{"type":"character","attributes":{},"value":["https://panchog.netlify.app/posts/2021-04-15-elsoc/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2092,8 +2092,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <h1>rbind.fill para armado de bases</h1>
 <!--radix_placeholder_categories-->
 <div class="dt-tags">
-  <a href="../../index.html#category:haven" class="dt-tag">haven</a>
-  <a href="../../index.html#category:plyr" class="dt-tag">plyr</a>
+  <a href="../../index.html#category:ELSOC" class="dt-tag">ELSOC</a>
 </div>
 <!--/radix_placeholder_categories-->
 <p><p>Juntaremos las tres olas del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios de Conflicto y Cohesión Social (COES) con el comando rbind.fill.</p></p>
@@ -2115,7 +2114,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <ul>
 <li><a href="#importamos">Importamos</a></li>
 <li><a href="#rbind.fill">rbind.fill</a></li>
-<li><a href="#missing-values">Missing Values</a></li>
 <li><a href="#guardamos-base">Guardamos Base</a></li>
 </ul></li>
 <li><a href="#referencias">Referencias</a></li>
@@ -2151,18 +2149,7 @@ text-align: justify}
 <p>Combinamos las tres bases con el comando <strong>rbind.fill</strong>(como <em>append</em> en stata):</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="va">elsoc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/plyr/man/rbind.fill.html">rbind.fill</a></span><span class="op">(</span><span class="va">elsoc_2016</span>, <span class="va">elsoc_2017</span>, <span class="va">elsoc_2018</span><span class="op">)</span>
-</code></pre>
-</div>
-</div>
-<h2 id="missing-values">Missing Values</h2>
-<p>Dado que en la ELSOC se asigna a los <em>missing values</em> un código único de -999 a “No Responde” y -888 “No Sabe”, hacemos una modificación para dejar estos números como <em>NA</em>.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="va">elsoc</span> <span class="op">&lt;-</span> <span class="va">elsoc</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/naniar/man/replace_with_na_all.html">replace_with_na_all</a></span><span class="op">(</span>condition <span class="op">=</span> <span class="op">~</span><span class="va">.x</span> <span class="op">==</span> <span class="op">-</span><span class="fl">999</span><span class="op">)</span>
-<span class="va">elsoc</span> <span class="op">&lt;-</span> <span class="va">elsoc</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/naniar/man/replace_with_na_all.html">replace_with_na_all</a></span><span class="op">(</span>condition <span class="op">=</span> <span class="op">~</span><span class="va">.x</span> <span class="op">==</span> <span class="op">-</span><span class="fl">888</span><span class="op">)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">elsoc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/plyr/man/rbind.fill.html">rbind.fill</a></span><span class="op">(</span><span class="va">elsoc_2016</span>, <span class="va">elsoc_2017</span>, <span class="va">elsoc_2018</span><span class="op">)</span><span class="op">)</span>
 </code></pre>
 </div>
 </div>
@@ -2176,7 +2163,7 @@ text-align: justify}
 </div>
 <h1 id="referencias">Referencias</h1>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/naniar/vignettes/replace-with-na.html">Replacing values with NA</a></li>
+<li><a href="https://dataverse.harvard.edu/dataverse/coes_data_repository?q=&amp;types=datasets&amp;fq0=subtreePaths%3A%22%2F3130692%22&amp;fq1=dvObjectType%3A%28datasets+OR+files%29&amp;sort=dateSort&amp;order=desc&amp;page=1">dataverse.harvard.edu</a></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

@@ -1,11 +1,11 @@
 ---
-title: "Estudio Longitudinal Social de Chile (ELSOC)2"
+title: "Analizando el Estudio Longitudinal Social de Chile (ELSOC)"
 description: |
-  Trabajaremos con las tres olas del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios de Conflicto y Cohesión Social (COES).
+  Trabajaremos con algunas variables de las tres olas del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios de Conflicto y Cohesión Social (COES).
 author:
   - name: Francisco Guzmán
     #url: {}
-date: 04-15-2021
+date: 04-23-2021
 output: 
   distill::distill_article:
     code_folding: false
@@ -14,9 +14,11 @@ output:
     toc_float: true
     toc_depth: 4
 categories:
-  - haven
+  - ELSOC
+  - Est. Descriptiva
+  - Graficos
 #preview: "plot.png"
-draft: true
+draft: false
 ---
 
 <style>
@@ -34,11 +36,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(haven)
-library(plyr)
 library(dplyr)
-library(naniar)
-library(expss)
-library(pastecs)
 library(ggplot2)
 library(summarytools)
 library(table1) 
@@ -46,9 +44,19 @@ library(table1)
 ```
 
 # Base de Datos
+Debemos utilizar la base creada en el post [rbind.fill para armado de bases](https://panchog.netlify.app/posts/2021-04-15-elsoc/).
 
 ```{r}
 base <- readRDS("elsoc.rds")
+
+```
+
+## Buscador
+Con este comando podemos buscar palabras claves en las etiquetas de las variables.
+
+```{r}
+labelled::look_for(base, "ingreso", "salario", details = "none") %>%
+  dplyr::as_tibble()
 
 ```
 
@@ -58,14 +66,46 @@ Creamos un nuevo *DataFrame* con las variables que utilizaremos.
 ```{r}
 elsoc <- base %>% 
   select(idencuesta, ola,
-         d03_01, d03_02, d04_01, d04_02
+         d03_01, d03_02, d04_01, d04_02,
+         c18_11
          )
+
+```
+
+## dfSummary 
+Una buena forma de tener una visión general de las variables a utilizar, es corriendo el siguiente comando (aparecerá en *viewer* y podremos abrir una nueva ventana para visualizar mejor):
+
+```{r, eval=FALSE}
+view(dfSummary(elsoc))
+
+```
+
+La variable $c18\_11$ es categórica, por lo que nos podría interesar el siguiente comando:
+
+```{r}
+sjmisc::frq(elsoc$c18_11) # se antepone sjmisc:: porque el comando es de esa librería
+
 ```
 
 
-## Creación de variables
+## Missing Values
+Dado que en la ELSOC se asigna a los *missing values* un código único de -999 a “No Responde” y -888 “No Sabe”, hacemos la siguiente modificación para dejar estos números como *NA*.
 
 ```{r}
+elsoc[elsoc == -999] <- NA
+elsoc[elsoc == -888] <- NA
+
+```
+
+Podemos volver a correr **view(dfSummary(elsoc))** y notaremos las diferencias.
+
+
+## Creación de variables
+Se crean nuevas variables para que las anteriores queden expresadas en millones de pesos y se crean algunos ratios (con y sin logaritmo natural).
+
+```{r}
+attach(elsoc)
+
 #salario percibido en $ millones
 elsoc$sp_gerente <- d03_01/1000000
 elsoc$sp_obrero <- d03_02/1000000
@@ -82,32 +122,12 @@ elsoc$bp_ln <-  log(elsoc$sp_gerente/elsoc$sp_obrero)
 elsoc$bj <-  elsoc$sj_gerente/elsoc$sj_obrero
 elsoc$bj_ln <-  log(elsoc$sj_gerente/elsoc$sj_obrero)
 
-elsoc[sapply(elsoc, is.infinite)] <- NA #valores infinitos como NA
-elsoc[sapply(elsoc, is.nan)] <- NA #NaN como NA
-
-```
-
-## Etiquetamos variables
-```{r, results='hide'}
-elsoc = apply_labels(elsoc,
-                      sp_gerente = "Salario percibido: Gerente gran empresa ($MM)",
-                     sp_obrero = "Salario Percibido: Obrero no calificado ($MM)",
-                     sj_gerente = "Salario justo: Gerente gran empresa ($MM)",
-                     sj_obrero = "Salario justo: Obrero no calificado ($MM)",
-                     bp = "Brecha Percibida",
-                     bp_ln = "Brecha Percibida (ln)",
-                     bj = "Brecha Justa",
-                     bj_ln = "Brecha Justa (ln)"
-                     )
-'
-Otra opción es:
-label(elsoc$sp_gerente) <- "Salario percibido: Gerente gran empresa ($MM)"
-'
-
 ```
 
 # Outliers
 ## Revisión
+Creamos un *DataFrame* auxiliar para hacer el análisis.
+
 ```{r}
 aux_outliers <- elsoc %>% 
   select(idencuesta, ola, sp_gerente,sp_obrero,sj_gerente,sj_obrero)
@@ -125,31 +145,63 @@ plot(ln_sj_gerente)
 ```
 
 ## Eliminación
-```{r}
-df <- elsoc[!(elsoc$idencuesta %in% c("3101041","3301091", "3301183", "3301113", "13115035","13115022") 
+Eliminamos los valores atípicos o *outliers* de manera arbitraria.
+
+```{r, results='hide'}
+elsoc[!(elsoc$idencuesta %in% c("3101041","3301091", "3301183", "3301113", "13115035","13115022") 
        & elsoc$ola == 1), 
        ]
+
+subset(idencuesta %in% c("3101041","3301091", "3301183", "3301113", "13115035","13115022") 
+       & elsoc$ola == 1)
+
+elsoc <- subset(elsoc, idencuesta %in% c("3101041","3301091", "3301183", "3301113", "13115035","13115022") 
+       & ola == 1)
 
 ```
 
 # Estadística Descriptiva
 
+##
+
+
+## table1
+Utilizaremos el comando **table1** para crear una tabla con información de las principales estadísticas de las variables elegidas.
+
 ```{r}
+
+label(elsoc$sp_gerente)   <- "Salario percibido: Gerente gran empresa ($MM)"
+label(elsoc$sp_obrero)   <- "Salario Percibido: Obrero no calificado ($MM)"
+label(elsoc$sj_gerente)   <- "Salario justo: Gerente gran empresa ($MM)"
+label(elsoc$sj_obrero)   <- "Salario justo: Obrero no calificado ($MM)"
+label(elsoc$bp)   <- "Brecha Percibida"
+label(elsoc$bj)   <- "Brecha Justa"
+
 table1(~ sp_gerente + sp_obrero + sj_gerente +  sj_obrero + bp + bj | ola, 
-       data = df,
+       data = elsoc,
        overall = F,
-       render.continuous=c("Media (Desv. est.)"="Mean (SD)", "Mediana [Rango]"="Median [Min, Max]", "Obs."="N"),
+       render.continuous=c("Media (Desv. est.)"="Mean (SD)",
+                           "Mediana [Rango]"="Median [Min, Max]",
+                           "Obs."="N"),
        render.missing = NULL,
        topclass="Rtable1-zebra",
-       footnote = "Fuente: Elaboración propia en base a datos de Estudio Longitudinal Social de Chile (ELSOC)",
+       footnote = "Fuente: Elaboración propia en base a datos del Estudio Longitudinal Social de Chile (ELSOC)",
        caption = "Salario Percibido, Salario Justo y Brechas"
        )
+
 ```
 
+# Código
+
+```{r ref.label=knitr::all_labels(), echo = T, eval = F, code_folding = TRUE}
+
+```
 
 
 # Referencias
 
-* [Replacing values with NA](https://cran.r-project.org/web/packages/naniar/vignettes/replace-with-na.html)
-
-
+* [Percepción de Desigualdad Económica en Chile: Medición, Diferencias y Determinantes](http://ojs.uc.cl/index.php/psykhe/article/view/20717)
+* [dataverse.harvard.edu](https://dataverse.harvard.edu/dataverse/coes_data_repository?q=&types=datasets&fq0=subtreePaths%3A%22%2F3130692%22&fq1=dvObjectType%3A%28datasets+OR+files%29&sort=dateSort&order=desc&page=1)
+* [Descriptive statistics in R](https://statsandr.com/blog/descriptive-statistics-in-r/)
+* [Introduction to summarytools](https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html)
+* [table1 Package](https://cran.r-project.org/web/packages/table1/vignettes/table1-examples.html)

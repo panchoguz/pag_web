@@ -13,8 +13,7 @@ output:
     toc_float: true
     toc_depth: 4
 categories:
-  - haven
-  - plyr
+  - ELSOC
 
 #preview: "plot.png"
 ---
@@ -53,18 +52,7 @@ load("ELSOC_W03_v2.00_R.RData")
 Combinamos las tres bases con el comando **rbind.fill**(como *append* en stata):
 
 ```{r}
-elsoc <- rbind.fill(elsoc_2016, elsoc_2017, elsoc_2018)
-
-```
-
-## Missing Values
-Dado que en la ELSOC se asigna a los *missing values* un código único de -999 a “No Responde” y -888 “No Sabe”, hacemos una modificación para dejar estos números como *NA*.
-
-```{r}
-elsoc <- elsoc %>%
-  replace_with_na_all(condition = ~.x == -999)
-elsoc <- elsoc %>%
-  replace_with_na_all(condition = ~.x == -888)
+elsoc <- as.data.frame(rbind.fill(elsoc_2016, elsoc_2017, elsoc_2018))
 
 ```
 
@@ -78,7 +66,4 @@ saveRDS(elsoc, "elsoc.rds")
 
 
 # Referencias
-
-* [Replacing values with NA](https://cran.r-project.org/web/packages/naniar/vignettes/replace-with-na.html)
-
-
+* [dataverse.harvard.edu](https://dataverse.harvard.edu/dataverse/coes_data_repository?q=&types=datasets&fq0=subtreePaths%3A%22%2F3130692%22&fq1=dvObjectType%3A%28datasets+OR+files%29&sort=dateSort&order=desc&page=1)

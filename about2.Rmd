@@ -8,8 +8,7 @@ links:
     url: "https://twitter.com/panchoguzman_"
   - label: GitHub
     url: "https://github.com/panchoguz"
-  - label: Email
-    url: "jguzmanb@fen.uchile.cl"
+    
 output:
   postcards::jolla
 ---
